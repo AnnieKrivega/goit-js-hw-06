@@ -1,19 +1,24 @@
-const rightEmail = '';
-const rightRassword = '';
+const loginForm = document.querySelector('.login-form');
 
-const form = document.querySelector('form');
-form.addEventListener('submit', event => {
-    event.preventDefault();
-    const emailValue = form.elements.email.value;
-    const passwordValue = form.elements.password.value;
+loginForm.addEventListener('submit', event => {
+event.preventDefault();
 
-    if (emailValue === rightEmail && passwordValue === rightRassword) {
-        return console.log({
-            elementsEmail: rightEmail,
-            elementsPassword: rightRassword
-        });
-    }
-    else if (emailValue === "" || passwordValue === "") {
-        alert("Fill up all the forms!")
-    }
-})
+const email = loginForm.elements.email.value;
+const password = loginForm.elements.password.value;
+
+if (email === '' || password === '') {
+    alert('Всі поля повинні бути заповнені !');
+    return;
+}
+
+const loginData = {
+    email,
+    password,
+};
+
+console.log(loginData);
+
+loginForm.reset();
+});
+
+
